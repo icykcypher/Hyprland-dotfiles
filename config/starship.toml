@@ -1,0 +1,64 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+palette = "custom"
+
+format = """
+[◢](tab)\
+[  ](fg:color4 bg:tab)\
+$username\
+$hostname\
+[◤](fg:tab bg:color2)\
+$directory\
+[◤](fg:color2 bg:color3)\
+$git_branch\
+$git_status\
+[◤](fg:color3 bg:color4)\
+$time\
+[◤ ](color4)\n
+[❯](color1) 
+"""
+
+[username]
+show_always = true
+style_user = "bg:tab fg:color4"
+style_root = "bg:tab fg:color4"
+format = '[ $user]($style)'
+
+[hostname]
+ssh_only = false
+style = "bg:tab fg:color4"
+format = '[@$hostname ]($style)'
+disabled = false
+
+[directory]
+style = "bg:color2 fg:foreground"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+style = "bg:color3 fg:foreground"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:color3 fg:foreground"
+format = '[$all_status$ahead_behind ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:color4 fg:foreground"
+format = '[ $time ]($style)'
+
+[palettes.custom]
+foreground = "#13152b"
+tab = "#13152b"
+color1 = "#33ccff"
+color2 = "#00dcf9"
+color3 = "#00e8e3"
+color4 = "#00f5c5"
+
