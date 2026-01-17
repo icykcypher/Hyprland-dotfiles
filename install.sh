@@ -8,7 +8,7 @@ info()  { echo "==> $1"; }
 # Step 0: Update system
 # ------------------------------
 info "Updating system..."
-sudo pacman -Syu --noconfirm
+sudo pacman -Syu
 
 # ------------------------------
 # Step 1: Ensure git is installed
@@ -34,13 +34,13 @@ fi
 # ------------------------------
 # Step 3: NVIDIA drivers if GPU detected
 # ------------------------------
-if lspci | grep -i nvidia &>/dev/null; then
-    info "NVIDIA GPU detected. Installing drivers..."
-    sudo pacman -S --needed nvidia nvidia-utils lib32-nvidia-utils xorg-xwayland
-    info "Make sure 'nvidia-drm.modeset=1' is in your GRUB kernel parameters"
-else
-    info "No NVIDIA GPU detected, skipping drivers"
-fi
+# if lspci | grep -i nvidia &>/dev/null; then
+#    info "NVIDIA GPU detected. Installing drivers..."
+#     sudo pacman -S --needed nvidia nvidia-utils lib32-nvidia-utils xorg-xwayland
+#    info "Make sure 'nvidia-drm.modeset=1' is in your GRUB kernel parameters"
+# else
+#     info "No NVIDIA GPU detected, skipping drivers"
+# fi
 
 # ------------------------------
 # Step 4: Install Hyprland + utilities
@@ -84,18 +84,18 @@ fi
 # ------------------------------
 # Step 7: Set NVIDIA Wayland env if GPU
 # ------------------------------
-ENV_FILE="$HOME/.config/hypr/env.conf"
-mkdir -p "$(dirname "$ENV_FILE")"
+#ENV_FILE="$HOME/.config/hypr/env.conf"
+#mkdir -p "$(dirname "$ENV_FILE")"
 
-if lspci | grep -i nvidia &>/dev/null; then
-    info "Writing NVIDIA environment variables..."
-    cat > "$ENV_FILE" <<'EOF'
+#if lspci | grep -i nvidia &>/dev/null; then
+#    info "Writing NVIDIA environment variables..."
+#    cat > "$ENV_FILE" <<'EOF'
 # NVIDIA Wayland environment variables
-export WLR_NO_HARDWARE_CURSORS=1
-export GBM_BACKEND=nvidia-drm
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-EOF
-fi
+#export WLR_NO_HARDWARE_CURSORS=1
+#export GBM_BACKEND=nvidia-drm
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+#EOF
+#fi
 
 # ------------------------------
 # Step 8: Activate dotfiles
