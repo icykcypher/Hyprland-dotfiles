@@ -3,7 +3,10 @@
 @import "theme.css";
 
 * {
-    min-height: 0px;
+    min-height: 0;
+}
+
+#waybar {
 }
 
 /* ===== Waybar ===== */
@@ -21,7 +24,7 @@
 
     font-size: 18px;
     border-radius: 20px;
-    margin: 0px 5px;
+    /*margin: 0px 5px;*/
 }
 
 #workspaces button {
@@ -58,7 +61,7 @@
 
     font-size: 16px;
     border-radius: 20px;
-    margin: 0px 10px;
+    /*margin: 0px 10px;*/
     padding: 0px 10px;
 }
 
@@ -81,8 +84,8 @@
 
     font-size: 16px;
     border-radius: 20px;
-    padding: 0px 10px;
-    margin: 0px 10px 0px 0px;
+    padding: 0px 10px 0px 10px;
+    /*margin: 0px 10px 0px 0px;*/
 }
 
 #pulseaudio.muted {
@@ -103,7 +106,7 @@
     font-size: 16px;
     border-radius: 20px;
     padding: 0px 10px;
-    margin: 0px 10px 0px 0px;
+    /*margin: 0px 10px 0px 0px;*/
 }
 
 #network.disconnected {
@@ -124,7 +127,7 @@
     font-size: 16px;
     border-radius: 20px;
     padding: 0px 10px;
-    margin: 0px 10px 0px 0px;
+   /* margin: 0px 10px 0px 0px;*/
 }
 
 #bluetooth:hover {
@@ -142,7 +145,7 @@
 
     font-size: 16px;
     border-radius: 20px 0px 0px 20px;
-    padding: 0px 5px 0px 10px;
+    padding: 0px 5px 0px 5px;
 }
 
 #memory {
@@ -191,9 +194,10 @@
     color: @foreground;
 
     font-size: 16px;
-    padding: 0px 10px 0px 5px;
+    padding: 0px 10px 0px 10px;
     border-radius: 0px 20px 20px 0px;
-    margin: 0px 10px 0px 0px;
+    /*margin: 0px 10px 0px 0px;*/
+    margin-right: 0;
 }
 
 #battery.critical {
@@ -208,10 +212,10 @@
     border-top: 2px solid @color6;
     border-left: 2px solid @color6;
     border-bottom: 2px solid @color6;
-    
+
     font-size: 16px;
     border-radius: 20px 0px 0px 20px;
-    padding: 0px 5px 0px 10px;
+    padding: 5px 5px;
 }
 
 #custom-power {
@@ -223,8 +227,8 @@
 
     font-size: 22px;
     border-radius: 0px 20px 20px 0px;
-    padding: 0px 0px 0px 5px;
-    margin: 0px 5px 0px 0px;
+    padding: 0px 10px 0px 10px;
+  /* margin: 0px 5px 0px 0px;*/
 }
 
 #custom-power:hover {
@@ -232,3 +236,47 @@
     color: @background;
     box-shadow: inset -2px 2px @background-focused;
 }
+/* одиночные модули */
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#bluetooth {
+    margin-right: 8px;
+}
+
+/* системный блок — БЕЗ margin внутри */
+#cpu,
+#memory,
+#temperature,
+#power-profiles-daemon,
+#battery {
+    margin-right: 0;
+}
+
+/* отступ после системного блока */
+#battery {
+    margin-right: 8px;
+}
+
+/* трей + power */
+#tray {
+    margin-right: 0;
+}
+
+#custom-power {
+    margin-left: 0;
+}
+
+#waybar {
+    padding-right: 6px;
+}
+
+#cpu,
+#memory,
+#temperature,
+#power-profiles-daemon,
+#battery {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
