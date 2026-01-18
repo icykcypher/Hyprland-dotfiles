@@ -4,7 +4,7 @@
         "type": "kitty-direct",
         "source": "/home/icykcypher/.config/fastfetch/Arch.svg.png",
         "height": 15,
-        "width": 30,
+        "width": 33,
         "padding": {
             "top": 5,
             "left": 3
@@ -46,7 +46,6 @@
             "type": "custom",
             "format": "\u001b[90m└──────────────────────────────────────────────────────────────┘"
         },
-        "break",
         {
             "type": "custom",
             "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
@@ -106,7 +105,6 @@
             "type": "custom",
             "format": "\u001b[90m└────────────────────────────────────────────────────┘"
         },
-        "break",
         {
             "type": "custom",
             "format": "\u001b[90m┌────────────────────Uptime / Age / DT────────────────────┐"
@@ -131,16 +129,10 @@
             "type": "custom",
             "format": "\u001b[90m└─────────────────────────────────────────────────────────┘"
         },
-
-//        {
-//            "type": "colors"
-//        },
-
         {
             "type": "colors",
             "paddingLeft": 2,
             "symbol": "circle"
         }
-
     ]
 }
